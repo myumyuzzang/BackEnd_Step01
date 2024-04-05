@@ -1,12 +1,16 @@
 [JOIN ON 절로 해결]
 
 1) 각 과목의 과목명과 담당 교수의 교수명을 검색하라
-SELECT 
+SELECT cname, pname
 from professor
 join course on professor.pno=course.pno;
 
 
 2) 화학과 학생의 기말고사 성적을 모두 검색하라
+SELECT sname, result
+from student
+join score on student.sno=score.sno;
+
 
 
 3) 유기화학과목 수강생의 기말고사 시험점수를 검색하라
