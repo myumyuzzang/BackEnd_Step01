@@ -69,9 +69,9 @@ WHERE hdate > '1995/12/31';
 --1995년 12월 31일 00시 00분 00초 이후
 
 
-8) 널값을 검색
- IS NULL : 널 값을 검색
- IS NOT NULL : 널이 아닌 값을 검색
+-- 8) 널값을 검색
+--  IS NULL : 널 값을 검색
+--  IS NOT NULL : 널이 아닌 값을 검색
  
 --  보너스 컬럼이 널 값인 사원을 검색하세요
 select eno, ename, comm

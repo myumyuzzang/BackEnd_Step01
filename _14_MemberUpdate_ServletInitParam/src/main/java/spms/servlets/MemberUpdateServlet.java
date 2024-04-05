@@ -69,3 +69,15 @@ public class MemberUpdateServlet extends HttpServlet{
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
