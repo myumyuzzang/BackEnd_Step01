@@ -113,11 +113,27 @@
  5) COMMIT 을 하여 트랜잭션을 완료한다
    트랜잭션이 완료되면 잠금이 해제되게 된다.
  COMMIT;
+
+  UPDATE student
+ set major = '화학'
+ where sname = '마초';
+
+ UPDATE student
+ set major = '사회'
+ where sname = '마초';
  
- 
+ commit;
+
  *트랜잭션에 의한 대기 현상 확인
  
  1) 마초의 학과를 사회학과로 변경한다
+ --화학
+SELECT major, sno, sname
+from student
+where sname='마초';
+
+
+-- 화학 -? 사회
  UPDATE student
  SET major = '사회'
  WHERE sname = '마초';
@@ -135,6 +151,7 @@
   상대인 세션2는 대기 상태에 들어가게 된다
   그래서 세션1은 COMMIT 을 완료하자
   그러면 다른 세션은 대기가 풀리고 명령이 실행된다
+
   COMMIT;
   
 6)세션1이 변경한 정보인 '사회'가 잘 보인다
@@ -146,9 +163,12 @@
   * 데드락(Dead Lock)을 발생하고 RDBMS의 
   처리 과정을 확인한다
 1) 관우와 장각의 학과를 확인한다
+
+--화학 화학
 SELECT sno, sname, major
 FROM student
 WHERE sname IN ('관우', '장각');
+
 
 2) 관우의 학과를 경제학과로 갱신한다
   관우의 레코드 행은 독점 잠금이 발생되었다
@@ -163,15 +183,5 @@ WHERE sname = '관우';
   SET major = '사회'
   WHERE sname = '장각';
 
-
-
-
-
-
-
-
-        
-        
-        
         
         
